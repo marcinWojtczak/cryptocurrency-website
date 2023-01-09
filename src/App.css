@@ -24,7 +24,7 @@ ul {
   overflow: hidden;
 }
 
-.gradient__bg {
+.gradient--bg {
   background: -moz-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
 
   /* safari 5.1+,chrome 10+ */
@@ -40,7 +40,7 @@ ul {
   background: radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
 }
 
-.gradient__text {
+.gradient--text {
   background: var(--gradient-text);
   background-clip: text;
   -webkit-background-clip: text;

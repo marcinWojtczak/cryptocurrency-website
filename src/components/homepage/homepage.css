@@ -1,0 +1,47 @@
+.homepage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 200px;
+}
+
+.info__crypto--stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.info__crypto--details {
+  color: white;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.info__crypto--text {
+  margin-right: 0.5rem;
+  color: var(--color-subtext)
+}
+
+.cryptocurrency {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cryptocurrency__link {
+  color: var(--color-subtext)
+}
+
+
+
+
+
+
