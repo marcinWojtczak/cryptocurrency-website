@@ -15,19 +15,19 @@ const Navbar = () => {
       <div className="navbar__menu">
         <div className="navbar__item">
           <img src={ home } className="navbar__icon" alt="home-icon"/>
-          <Link to="/">Home</Link>
+          <Link to="/" className="navbar__link">Home</Link>
         </div>
         <div className="navbar__item">
           <img src={ cryptocurrency } className="navbar__icon" alt="crypto-icon"/>
-          <Link to="/cryptocurrency">Cryptocurrency</Link>
+          <Link to="/cryptocurrency" className="navbar__link">Cryptocurrency</Link>
         </div>
         <div className="navbar__item">
           <img src={ exchange } className="navbar__icon" alt="exchange-icon"/>
-          <Link to="/exchange">Exchange</Link>
+          <Link to="/exchange" className="navbar__link">Exchange</Link>
         </div>
         <div className="navbar__item">
           <img src={ news } className="navbar__icon" alt="news-icon"/>
-          <Link to="/news">News</Link>
+          <Link to="/news" className="navbar__link">News</Link>
         </div>
       </div>
     </div>

@@ -1,34 +1,49 @@
+
 .cryptocurrency__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  gap: 30px;
+  gap: 40px;
+  margin-top: 4rem;
 }
 
 .cryptocurrency__card {
-  width: 30%;
+  width: 23%;
   height: 400px;
-  background: var(--color-mediumBlue);
-  padding: 2rem;
+  padding: 2rem ;
 }
 
 .cryptocurrency__card:hover {
-  box-shadow: 0px 0px 17px 0px #AE67FA;
+  box-shadow: 0px 0px 17px 0px rgb(255, 255, 255);
 }
 
 .cryptocurrency__name {
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .cryptocurrency__info {
   font-weight: 400;
+  margin-right: 2rem;
 }
 
 .cryptocurrency__img {
-  width: 40px;
+  width: 50px;
+}
+
+.cryptocurrency__stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+
+.cryptocurrency__stats--info {
+  margin: 1rem 0;
+  font-weight: 500;
+  color: var(--color-lightBlue);
 }

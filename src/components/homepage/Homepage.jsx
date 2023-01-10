@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./homepage.css";
-import { Cryptocurrency } from "../../components";
+import { Cryptocurrency, News } from "../../components";
 import { Link } from "react-router-dom";
-import { getCoinsData } from "../../api"
+import millify from "millify";
 
-const Homepage = () => {
+
+const Homepage = ( {data, news} ) => {
   
-const [data, setData] = useState()
-console.log(data)
-
-  useEffect(() => {
-    getCoinsData()
-    .then((data) => {
-      setData(data)
-    })
-  }, [])
-
   return (
-    <div className="homepage">
-      
+    <div className="homepage ">
       <section className="info">
         <h1 className="info__title gradient--text">Global Crypto Stats</h1>
         <div className="info__crypto--stats">
@@ -32,11 +22,11 @@ console.log(data)
           </h3>
           <h3 className="info__crypto--details">
             <span className="info__crypto--text">Market Cap:</span>
-            <span>{data?.stats?.totalMarketCap}</span>
+            <span>{millify(data?.stats?.totalMarketCap)}</span>
           </h3>
           <h3 className="info__crypto--details">
             <span className="info__crypto--text">24h vol:</span>
-            <span>{data?.stats?.total24hVolume}</span>
+            <span>{millify(data?.stats?.total24hVolume)}</span>
           </h3>
           <h3 className="info__crypto--details">
             <span className="info__crypto--text">Dominance:</span>
@@ -46,15 +36,21 @@ console.log(data)
       </section>
 
       <section className="cryptocurrency">
-        <div className="cryptocurrency__title gradient--text">
-          <h1>Top 10 Cryptocurrencies in the world</h1>
+        <div className="cryptocurrency__title">
+          <h1 className="gradient--text">Top 10 Cryptocurrencies in the world</h1>
+          <Link to="/cryptocurrencies" className="cryptocurrency__link">See more</Link>
         </div>
-        <div className="cryptocurrency__link">
-          <Link to="/cryptocurrencies">See more</Link>
-        </div>
-        <Cryptocurrency data={data} simplified={true} />
+        <Cryptocurrency data={data}/>
       </section>
-      
+
+      <section className="news">
+        <div className="news__title">
+          <h1 className="gradient--text">Latest Crypto News</h1>
+          <Link to="/cryptocurrencies" className="news__link">See more</Link>
+        </div>
+        <News news={news} simplified={true}/>
+      </section>
+
     </div>
   )
 }

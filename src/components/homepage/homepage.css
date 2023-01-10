@@ -1,5 +1,5 @@
 .homepage {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   padding: 2rem 0;
@@ -8,8 +8,9 @@
 .info {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   height: 200px;
+  padding: 2rem
 }
 
 .info__crypto--stats {
@@ -36,8 +37,52 @@
   width: 100%;
 }
 
+.cryptocurrency__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 0 2rem;
+  width: 95%;
+}
+
 .cryptocurrency__link {
-  color: var(--color-subtext)
+  color: var(--color-subtext);
+  font-size: 20px;
+  font-weight: 600;
+  background: #FF4820;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  margin-right: 4rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.news__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 0 2rem;
+  width: 95%;
+}
+
+.news__link {
+  color: var(--color-subtext);
+  font-size: 20px;
+  font-weight: 600;
+  background: #FF4820;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  margin-right: 4rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 
