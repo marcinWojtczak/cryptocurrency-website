@@ -7,9 +7,8 @@ import { getCoinsData, cryptoNewsData } from "../src/api";
 
 const App = () => {
   const [data, setData] = useState();
-  console.log(data)
   const[news, setNews] = useState();
-  console.log(news)
+  
 
   //get crypto data
   useEffect(() => {
@@ -21,7 +20,7 @@ const App = () => {
 
   //get crypto info
   useEffect(() => {
-    cryptoNewsData('Cryptocurrency', 6)
+    cryptoNewsData('Cryptocurrency')
     .then((data) => {
       setNews(data)
     })
@@ -34,7 +33,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={ <Homepage data={data} news={news}/>}></Route>
         <Route exact path="/cryptocurrency" element={ <Cryptocurrency data={data}/>}></Route>
-        <Route exact path="/news" element={ <News news={news} /> }></Route>
+        <Route exact path="/news" element={ <News news={news} />}></Route>
         
       </Routes>
       

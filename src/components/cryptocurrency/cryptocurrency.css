@@ -1,49 +1,48 @@
 
-.cryptocurrency__container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  gap: 40px;
+.cryptocurrency__table {
   margin-top: 4rem;
-}
-
-.cryptocurrency__card {
-  width: 23%;
-  height: 400px;
-  padding: 2rem ;
-}
-
-.cryptocurrency__card:hover {
-  box-shadow: 0px 0px 17px 0px rgb(255, 255, 255);
-}
-
-.cryptocurrency__name {
   color: white;
+  width: 90%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table:last-child {
+  border-bottom: none
+}
+
+.table__row {
+  border-top: 1px solid var(--color-lightBlue);
+  height: 90px;
+}
+
+.table__row:last-child {
+  border-bottom: 1px solid var(--color-lightBlue);
+}
+
+.table__data {
+  text-align: center;
+  font-size: 20px;
+  width: 100px;
+}
+
+.table__link {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-subtext);
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
 }
 
-.cryptocurrency__info {
-  font-weight: 400;
-  margin-right: 2rem;
+.coins__logo {
+  width: 40px;
+  margin-right: 1rem;
 }
 
-.cryptocurrency__img {
-  width: 50px;
-}
 
-.cryptocurrency__stats {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 1rem 0;
-}
 
-.cryptocurrency__stats--info {
-  margin: 1rem 0;
-  font-weight: 500;
-  color: var(--color-lightBlue);
-}
+

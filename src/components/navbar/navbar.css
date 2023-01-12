@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  color: white;
   padding: 2rem 1rem;
   width: 25%;
 }
@@ -24,19 +23,26 @@
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.5px;
+  color: white;
 }
+
 
 .navbar__menu {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 2rem;
+  margin-top: 2rem;
 }
 
 .navbar__item {
   display: flex;
-  align-items: center;
   margin-bottom: 1.5rem;
+  color: white;
+}
+
+.navbar__item:hover {
+  color: var(--color-subtext);
 }
 
 .navbar__icon {

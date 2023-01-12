@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./news.css";
-import { Link } from "react-router-dom"
+import moment from 'moment'
+
+const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News'
 
 const News = ( { news, simplified }) => {
-  const data = news?.value
+  const data = news?.value;
+  const count = simplified ? 6: 15
   console.log(data)
 
   return (
     <div className="news__container">
-      {data?.slice(0, 6).map((news, index) => (
+      {data?.slice(0, count).map((news, index) => (
         <div className="news__card" key={index}>
-          <a href={news.url} target="blank">
-            <div className="card__title">
-              <img className="card__img" src={news?.image?.thumbnail?.contentUrl} alt="news"></img>
-              <h2>{news.title}</h2>
+          <a href={news.url} className="news__link" target="blank">
+            <div className="news__title">
+              <img className="news__img" src={news?.image?.thumbnail?.contentUrl} alt="news"></img>
+              <h2 className="news__text gradient--text">{news.name}</h2>
             </div>
-            <div className="card__content">
+            <div className="news__content">
               <p>
                 {news.description > 80 
                   ? `${news.description.substring(1, 80)}...`
@@ -23,10 +26,16 @@ const News = ( { news, simplified }) => {
                 }
               </p>
             </div>
+            <div className="provider__container">
+              <div className="provider__source">
+                <img className="provider__img" src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage } alt=""/>
+                <p className="provider__name">{news.provider[0]?.name}</p>
+                </div>
+              <p className="provider__time">{moment(news.datePublished).startOf('hour').fromNow()}</p> 
+            </div>
           </a>
         </div>
       ))}
-      <h1>News</h1>
     </div>
     
   )
