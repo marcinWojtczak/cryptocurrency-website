@@ -1,16 +1,18 @@
 import React, { useState, useEffect} from "react";
 import "./App.css";
-import { Navbar, News, Homepage, Cryptocurrency} from "./components"
-import { Link, Routes, Route } from "react-router-dom";
-import { getCoinsData, cryptoNewsData } from "../src/api";
+import { Navbar, News, Homepage, Cryptocurrency, CryptoDetails} from "./components"
+import { Link, Routes, Route, useParams } from "react-router-dom";
+import { getCoinsData, getCoinData, cryptoNewsData } from "../src/api";
+
+
 
 
 const App = () => {
   const [data, setData] = useState();
+  const [singleCoin, setSingleCoin ] = useState();
   const[news, setNews] = useState();
   
-
-  //get crypto data
+  //get coins data
   useEffect(() => {
     getCoinsData()
     .then((data) => {
@@ -34,7 +36,7 @@ const App = () => {
         <Route path="/" element={ <Homepage data={data} news={news}/>}></Route>
         <Route exact path="/cryptocurrency" element={ <Cryptocurrency data={data}/>}></Route>
         <Route exact path="/news" element={ <News news={news} />}></Route>
-        
+        <Route exact path="/coin/:coinId" element={<CryptoDetails />}></Route>        
       </Routes>
       
     </div>

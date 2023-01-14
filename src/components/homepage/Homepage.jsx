@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./homepage.css";
-import { Cryptocurrency, News } from "../../components";
+import { Cryptocurrency, News, CryptoDetails } from "../../components";
 import { Link } from "react-router-dom";
 import millify from "millify";
 

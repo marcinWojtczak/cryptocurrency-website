@@ -1,15 +1,14 @@
-import React, { useState, useEffect} from "react";
+import React from "react";
 import "./cryptocurrency.css";
 import { Link } from "react-router-dom";
-// import { Sparklines, SparklinesLine, SparklinesNormalBand, SparklinesSpots } from "react-sparklines";
-import { getCoinsData } from "../../api/";
 import millify from "millify";
 
+
 const Cryptocurrency = ({ data, simplified }) => {
-  console.log(data)
+  
   const coins = data?.coins
   const count = simplified ? 10: 50
-  
+
   
   return (
     <div className="cryptocurrency__table">
@@ -31,8 +30,8 @@ const Cryptocurrency = ({ data, simplified }) => {
                 <td className="table__data">{`${coin.rank}.`}</td>
                 <td className="table__data">
                   <div className="table__logo">
-                    <Link className="table__link" to={`/crypto/${coin.uuid}`}>
-                      <img src={` ${coin.iconUrl}`} className="coins__logo"></img>{coin.name}
+                    <Link className="table__link" to={`/coin/${coin.uuid}`} >
+                      <img src={` ${coin.iconUrl}`} className="coins__logo" alt="coins-logo"></img>{coin.name}
                     </Link> 
                   </div>
                 </td>

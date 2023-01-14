@@ -1,0 +1,106 @@
+.cryptoDetail__container {
+  color: white;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 2rem 3rem;
+}
+
+.cryptoDetail__header {
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.cryptoDetail__content {
+  display: flex;
+  align-items: flex-end;
+}
+
+.cryptoDetail__logo {
+  width: 30px;
+  margin-right: 0.5rem;
+}
+
+.cryptoDetail__name {
+  font-size: 24px;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.cryptoDetail__symbol {
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 0.5rem;
+  margin-bottom: 2px;
+}
+
+.cryptoDetail__rank {
+  font-size: 12px;
+  margin-bottom: 2px;
+  margin-right: 3rem;
+  border: 1px solid var(--color-lightBlue);
+  border-radius: 3px;
+  padding: 1px 7px;
+}
+
+.cryptoDetail__price {
+  font-size: 24px;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.line__chart {
+  margin-bottom: 2rem;
+}
+
+.cryptoDetail__stats {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  justify-content: space-between;
+  
+}
+
+.cryptoDetail__description {
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.cryptoDetail__text {
+  letter-spacing: 1px;
+  padding: 1rem 0;
+  color: var(--color-lightBlue);
+  font-weight: 300;
+  border-bottom: 1px solid var(--color-darkBlue);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cryptoDetail__number,
+.cryptoDetail__link {
+  letter-spacing: 1px;
+  color: var(--color-subtext);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cryptoDetail__info {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+

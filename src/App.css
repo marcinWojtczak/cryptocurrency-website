@@ -10,6 +10,12 @@ body {
   background: var(--color-bg)
 }
 
+span {
+  margin: 0;
+  padding: 0;
+}
+
+
 
 a {
   color: unset;
