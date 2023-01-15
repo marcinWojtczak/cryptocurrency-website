@@ -75,7 +75,11 @@ return (
         <h1 className="cryptoDetail__title gradient--text">What is {coin?.name}</h1>
           <p className="cryptoDetail__description" dangerouslySetInnerHTML={{__html: button ? htmlString : fullHtmlString }}></p>
           <div className="btn--long" onClick={buttonToggle}>
+<<<<<<< HEAD
             {button ? <p>Read More</p> : <p>Read Less</p>}
+=======
+            {button ? <p>Read More</p> : <p>Hide text</p>}
+>>>>>>> 6c83d3a424bc54151a266d75698436008a5f1e76
           </div>
   
       </div>
