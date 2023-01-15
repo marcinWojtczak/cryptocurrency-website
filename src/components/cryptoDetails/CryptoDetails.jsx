@@ -2,27 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import "./cryptoDetails.css";
 import { getCoinData } from '../../api';
-import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
-import millify from 'millify';;
+import millify from 'millify';
+import { ImGithub } from 'react-icons/im';
+import { GiCube } from 'react-icons/gi';
+import { BsCurrencyBitcoin } from 'react-icons/bs';
+import { TbWorld } from 'react-icons/tb';
 
 
 
 export const CryptoDetails = () => {
   
   const { timePeriod, setTimePeriod } = useState('7d');
+  //get single coin form api
   const [singleCoin, setSingleCoin ] = useState();
-  const { coinId } = useParams()
+  //set single coin
   const coin = singleCoin?.coin
-  const htmlString = coin?.description
-  console.log(htmlString)
+  //set button
+  const [button, setButton] = useState(true);
 
+  const { coinId } = useParams()
 
+  //get coin description from index 0 to 600 
+  const htmlString = coin?.description?.substring(0, 600);
+  //get full coin descriotpion
+  const fullHtmlString = coin?.description;
   
-  const htmlLength = htmlString?.length > 400 ? htmlString?.substring(0, 400) : htmlString
-  
+  //change button
+  function buttonToggle() {
+  setButton(button => !button)
+  }
 
-
+  //fetch coin details data from api
   useEffect(() => {
     getCoinData(coinId)
     .then((data) => {
@@ -62,21 +73,60 @@ return (
 
       <div className="cryptoDetail__info">
         <h1 className="cryptoDetail__title gradient--text">What is {coin?.name}</h1>
-        <h3 className="cryptoDetail__description" dangerouslySetInnerHTML={{__html: htmlLength}}></h3>
+          <p className="cryptoDetail__description" dangerouslySetInnerHTML={{__html: button ? htmlString : fullHtmlString }}></p>
+          <div className="btn--long" onClick={buttonToggle}>
+            {button ? <p>Read More</p> : <p>Hide text</p>}
+          </div>
+  
+      </div>
         
       
-        <div className="cryptoDetail__links">
-          <h1 className="cryptoDetail__title gradient--text">Links</h1>
-          <h4 className="cryptoDetail__text">Website <span className="cryptoDetail__link">{coin?.links[0].name}</span></h4>
-          <h4 className="cryptoDetail__text">Website <span className="cryptoDetail__link">{coin?.links[1].name}</span></h4>
-          <h4 className="cryptoDetail__text">Bitcoin Talk <span className="cryptoDetail__link">{coin?.links[2].name}</span></h4>
-          <h4 className="cryptoDetail__text">Block Explorer <span className="cryptoDetail__link">{coin?.links[3].name}</span></h4>
-          {!coin?.links[4] ? '' : <h4 className="cryptoDetail__text">GitHub <span className="cryptoDetail__link">{coin?.links[4].name}</span></h4>}
-          
+      <div className="cryptoDetail__links">
+        <h1 className="cryptoDetail__title gradient--text">Links</h1>
+        
+        <div className="cryptoDetail__link">
+          <div className="cryptoDetail__items">
+            <TbWorld className="icon"/>
+            <h4>Website</h4>
+          </div>
+          <a href={coin?.links[0].url} target="blank">{coin?.links[0].name}</a>
         </div>
+        
+        <div className="cryptoDetail__link">
+          <div className="cryptoDetail__items">
+            <TbWorld className="icon"/>
+            <h4>Website</h4>
+          </div>
+          <a href={coin?.links[1].url} target="blank">{coin?.links[1].name}</a>
+        </div>
+
+        <div className="cryptoDetail__link">
+          <div className="cryptoDetail__items">
+          <BsCurrencyBitcoin className="icon"/>
+          <h4>Bitcoin Talk</h4>
+          </div>
+          <a href={coin?.links[2].url} target="blank">{coin?.links[2].name}</a>
+        </div>
+
+        <div className="cryptoDetail__link">
+          <div className="cryptoDetail__items">
+          <GiCube className="icon"/><h4>Block Explorer</h4>
+          </div>
+          <a href={coin?.links[3].url} target="blank">{coin?.links[3].name}</a>
+        </div>
+
+      {!coin?.links[4] ? '' : 
+      <div className="cryptoDetail__link">
+        <div className="cryptoDetail__items">
+          <ImGithub className="icon"/>
+          <h4>Github</h4>
+        </div>
+        <a href={coin?.links[4].url} target="blank">{coin?.links[4].name}</a>
+      </div>
+      }
+          
       </div>
     </div>
-    
   )
 }
 
