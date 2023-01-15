@@ -10,6 +10,13 @@ body {
   background: var(--color-bg)
 }
 
+span {
+  margin: 0;
+  padding: 0;
+}
+
+
+
 a {
   color: unset;
   text-decoration: none;
@@ -27,6 +34,10 @@ ul {
 .app {
   display: flex;
   overflow: hidden;
+}
+
+.span--text {
+  color: #FF8A71;
 }
 
 .gradient--bg {

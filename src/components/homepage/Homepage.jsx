@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./homepage.css";
-import { Cryptocurrency, News } from "../../components";
+import { Cryptocurrency, News, CryptoDetails } from "../../components";
 import { Link } from "react-router-dom";
 import millify from "millify";
 
@@ -38,15 +38,15 @@ const Homepage = ( {data, news} ) => {
       <section className="cryptocurrency">
         <div className="cryptocurrency__title">
           <h1 className="gradient--text">Top 10 Cryptocurrencies in the world</h1>
-          <Link to="/cryptocurrencies" className="cryptocurrency__link">See more</Link>
+          <Link to="/cryptocurrency" className="cryptocurrency__link">See more</Link>
         </div>
-        <Cryptocurrency data={data}/>
+        <Cryptocurrency data={data} simplified={true}/>
       </section>
 
       <section className="news">
-        <div className="news__title">
+        <div className="news__header">
           <h1 className="gradient--text">Latest Crypto News</h1>
-          <Link to="/cryptocurrencies" className="news__link">See more</Link>
+          <Link to="/news" className="news__btn">See more</Link>
         </div>
         <News news={news} simplified={true}/>
       </section>
