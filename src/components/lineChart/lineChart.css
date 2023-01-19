@@ -1,0 +1,78 @@
+.lineChart__header {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lineChart__data {
+  display: flex;
+  width: 60%;
+  justify-content: flex-end;
+}
+
+.lineChart__price--change {
+  color: var(--color-subtext);
+  font-weight: 400;
+  margin-right: 2rem;
+}
+
+.lineChart__current--price {
+  color: var(--color-lightBlue);
+  font-weight: 400;
+}
+
+.lineChart__current--number {
+  color: var(--color-subtext);
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1000px) {
+  .lineChart__header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .lineChart__title {
+    margin: 1rem 0;
+    font-size: 32px;
+  }
+
+  .lineChart__data {
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .lineChart__price--change {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .lineChart__header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .lineChart__title {
+    margin: 0.8rem 0;
+    font-size: 28px;
+  }
+
+  .lineChart__data {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .lineChart__price--change {
+    margin: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .lineChart__data {
+    font-size: 12px;
+  }
+}

@@ -33,7 +33,16 @@ ul {
 
 .app {
   display: flex;
-  overflow: hidden;
+}
+
+@media screen and (max-width: 1050px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .span--text {

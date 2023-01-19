@@ -35,6 +35,25 @@ export async function getCoinData(coinID) {
 }
 
 
+//get coin history
+export async function getCoinHistory(coinID, timePeriod) {
+	try {																								
+		const response = await axios.get(`https://coinranking1.p.rapidapi.com/coin/${coinID}/history?timeperiod=${timePeriod}`, {
+			params: { timePeriod: timePeriod },
+			headers: {
+			'X-RapidAPI-Key': '3105332e11msh264d437b14b7e68p1e62d8jsnb3ffd57a961a',
+			'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+			},
+		});
+
+		return response.data.data
+
+	} catch(error) { 
+		console.log(error)
+	}
+}
+
+
 //get coins news info
 export async function cryptoNewsData(newsCategory)  {
 	try {

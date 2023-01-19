@@ -14,14 +14,14 @@ const News = ( { news, simplified }) => {
       {data?.slice(0, count).map((news, index) => (
         <div className="news__card" key={index}>
           <a href={news.url} className="news__link" target="blank">
-            <div className="news__title">
+            <div className="news__card--title">
               <img className="news__img" src={news?.image?.thumbnail?.contentUrl} alt="news"></img>
-              <h2 className="news__text gradient--text">{news.name}</h2>
+              <h3 className="news__text gradient--text">{news.name}</h3>
             </div>
             <div className="news__content">
               <p>
-                {news.description > 80 
-                  ? `${news.description.substring(1, 80)}...`
+                {news.description > 60 
+                  ? `${news.description.substring(1, 60)}...`
                   : news.description
                 }
               </p>

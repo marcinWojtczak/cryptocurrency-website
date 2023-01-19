@@ -16,6 +16,7 @@
   align-items: flex-end;
 }
 
+
 .cryptoDetail__logo {
   width: 28px;
   margin-right: 0.5rem;
@@ -49,8 +50,15 @@
   margin-right: 0.5rem;
 }
 
-.line__chart {
-  margin-bottom: 2rem;
+.select__timePeriod {
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  background: #FF4820;
+  border: none;
+  color: white;
+  outline: none;
+  border-radius: 5px;
 }
 
 .cryptoDetail__stats {
@@ -76,12 +84,12 @@
   background: var(--gradient-text);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 2rem 0 1rem;
+  margin: 2rem 0 1rem ;
 }
 
 .btn--long {
   color: var(--color-subtext);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   background: #FF4820;
   border-radius: 5px;
@@ -90,7 +98,9 @@
   border: none;
   cursor: pointer;
   text-align: center;
-  margin: 1rem 0 2rem ;
+  margin: auto;
+  width: 50%;
+  margin-top: 1rem;
 }
 
 .cryptoDetail__text {
@@ -149,6 +159,75 @@
   font-size: 30px;
   margin-right: 0.5rem;
   font-weight: 100;
+}
+
+@media screen and (max-width: 550px) {
+  .btn--long {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0.8rem 2.4rem;
+  }
+
+  .cryptoDetail__logo {
+    width: 24px;
+  }
+
+  .cryptoDetail__name {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .cryptoDetail__symbol {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .cryptoDetail__rank {
+    font-size: 12px;
+  }
+
+  .cryptoDetail__price {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .cryptoDetail__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cryptoDetail__logo {
+    margin: auto;
+    padding-bottom: 10px;
+  }
+
+  .cryptoDetail__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cryptoDetail__rank {
+    margin: auto;
+  }
+
+  .btn--long {
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 0.6rem 1.8rem;
+  }
+
+  .cryptoDetail__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid var(--color-darkBlue);
+    padding: 1rem 0;
+  }
 }
 
 

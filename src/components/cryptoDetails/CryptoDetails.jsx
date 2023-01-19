@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import "./cryptoDetails.css";
-import { getCoinData } from '../../api';
+import { getCoinData, getCoinHistory } from '../../api';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
 import { ImGithub } from 'react-icons/im';
 import { GiCube } from 'react-icons/gi';
 import { BsCurrencyBitcoin } from 'react-icons/bs';
 import { TbWorld } from 'react-icons/tb';
+import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import {LineChart} from "../../components";
+
 
 
 
 export const CryptoDetails = () => {
   
-  const { timePeriod, setTimePeriod } = useState('7d');
-  //get single coin form api
-  const [singleCoin, setSingleCoin ] = useState();
+  //set time period
+  const [timePeriod, setTimePeriod]= useState('7d');
+  
+  //get single coin from api
+  const [singleCoin, setSingleCoin] = useState();
+  //get coin history
+  const [coinHistory, setCoinHistory] = useState();
+  // console.log(coinHistory.history[719])
   //set single coin
   const coin = singleCoin?.coin
   //set button
@@ -25,13 +33,21 @@ export const CryptoDetails = () => {
 
   //get coin description from index 0 to 600 
   const htmlString = coin?.description?.substring(0, 600);
-  //get full coin descriotpion
+  //get full coin description
   const fullHtmlString = coin?.description;
-  
+
+  const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+
+  //change period time
+  function changePeriodTime(event) {
+    setTimePeriod(event.target.value)
+  }
+
   //change button
   function buttonToggle() {
   setButton(button => !button)
   }
+
 
   //fetch coin details data from api
   useEffect(() => {
@@ -40,6 +56,16 @@ export const CryptoDetails = () => {
       setSingleCoin(data)
     })
   }, [coinId]);
+
+  //get coin history
+  useEffect(() => {
+    getCoinHistory(coinId, timePeriod)
+    .then((data) => {
+      setCoinHistory(data)
+    })
+  }, [timePeriod])
+
+  
 
 return (
     <div className="cryptoDetail__container">
@@ -53,16 +79,25 @@ return (
         </div>
       </div>
 
+      <div className="cryptoDetail__select">
+        <select 
+          className="select__timePeriod" 
+          placeholder="select time period"
+          onChange={changePeriodTime}
+          value={timePeriod}
+        >
+          {time.map((date) => <option key={date}>{date}</option>)}
+        </select>
+      </div>
+
       <div className="line__chart">
-        <Sparklines data={coin?.sparkline}>
-          <SparklinesLine color="#FF8A71" />
-        </Sparklines>
+        <LineChart  coinHistory={coinHistory} currentPrice={millify(coin?.price, {precision: 6})} coinName={coin?.name}/>
       </div>
 
       <div className="cryptoDetail__stats">
-        <h1 className="cryptoDetail__title gradient--text">Value statistics</h1>
-        <h3 className="cryptoDetail__description">An overview showing the statistics of {coin?.name}, such as the base and quote currency, the rank, and trading volume.
-        </h3>
+        <h2 className="cryptoDetail__title gradient--text">Value statistics</h2>
+        <h4 className="cryptoDetail__description">An overview showing the statistics of {coin?.name}, such as the base and quote currency, the rank, and trading volume.
+        </h4>
         <h4 className="cryptoDetail__text">Price to USD: <span className="cryptoDetail__number">{`$ ${millify(coin?.price, {precision: 6})}`}$</span></h4>
         <h4 className="cryptoDetail__text">Price to BTC: <span className="cryptoDetail__number">{`${millify(coin?.btcPrice, {precision: 6})}`}BTC
         </span></h4>
@@ -72,21 +107,15 @@ return (
       </div>
 
       <div className="cryptoDetail__info">
-        <h1 className="cryptoDetail__title gradient--text">What is {coin?.name}</h1>
+        <h2 className="cryptoDetail__title gradient--text">What is {coin?.name}</h2>
           <p className="cryptoDetail__description" dangerouslySetInnerHTML={{__html: button ? htmlString : fullHtmlString }}></p>
           <div className="btn--long" onClick={buttonToggle}>
-<<<<<<< HEAD
             {button ? <p>Read More</p> : <p>Read Less</p>}
-=======
-            {button ? <p>Read More</p> : <p>Hide text</p>}
->>>>>>> 6c83d3a424bc54151a266d75698436008a5f1e76
           </div>
-  
       </div>
         
-      
       <div className="cryptoDetail__links">
-        <h1 className="cryptoDetail__title gradient--text">Links</h1>
+        <h2 className="cryptoDetail__title gradient--text">Links</h2>
         
         <div className="cryptoDetail__link">
           <div className="cryptoDetail__items">
@@ -127,8 +156,7 @@ return (
         </div>
         <a href={coin?.links[4].url} target="blank">{coin?.links[4].name}</a>
       </div>
-      }
-          
+      }  
       </div>
     </div>
   )
