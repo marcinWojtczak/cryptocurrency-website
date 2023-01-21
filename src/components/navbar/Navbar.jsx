@@ -17,7 +17,7 @@ const Menu = () => (
       </div>
       <div className="navbar__item">
         <img src={ exchange } className="navbar__icon" alt="exchange-icon"/>
-        <Link to="/exchange" className="navbar__link">Exchange</Link>
+        <Link to="/exchanges" className="navbar__link">Exchange</Link>
       </div>
       <div className="navbar__item">
         <img src={ news } className="navbar__icon" alt="news-icon"/>

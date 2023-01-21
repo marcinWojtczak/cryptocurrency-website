@@ -1,0 +1,65 @@
+.exchanges {
+  width: 90%;
+  color: white;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.exchange__title {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.table__name {
+  width: 100px;
+}
+
+.table__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.market__logo {
+  width: 35px;
+  margin-right: 1rem
+}
+
+.market__name {
+  color: var(--color-subtext)
+}
+
+@media screen and (max-width: 775px) {
+
+  .table__name
+  .table__data {
+    font-size: 14px;
+  }
+
+  .table__link {
+    font-size: 16px;
+  }
+
+  .market__logo {
+    width: 30px;
+    margin-right: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .table__name 
+  .table__data {
+      font-size: 12px;
+  }
+
+  .table__link {
+    font-size: 14px;
+  }
+
+  .market__logo {
+    width: 25px;
+    margin-right: 0.6rem;
+  }
+}
+
+

@@ -7,6 +7,7 @@ import millify from "millify";
 
 const Homepage = ( {data, news} ) => {
   
+
   return (
     <div className="homepage ">
       <section className="info">
