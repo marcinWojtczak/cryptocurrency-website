@@ -7,7 +7,6 @@ const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=Ne
 const News = ( { news, simplified }) => {
   const data = news?.value;
   const count = simplified ? 6: 15
-  console.log(data)
 
   return (
     <div className="news__container">

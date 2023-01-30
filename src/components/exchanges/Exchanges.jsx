@@ -15,6 +15,9 @@ useEffect(() => {
     .then((data) => {
       setExchanges(data)
     })
+    return () => {
+      
+    }
 }, []);
 
   return (
