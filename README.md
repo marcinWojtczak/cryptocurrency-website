@@ -1,5 +1,5 @@
 # cryptocurrency-website
-Price-tracking website for cryptoassets, 
+Price-tracking website for cryptocurrencys, 
 
 ## Technologiest
 
