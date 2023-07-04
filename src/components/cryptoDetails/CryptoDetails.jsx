@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+
 import "./cryptoDetails.css";
 import { getCoinData, getCoinHistory } from '../../api';
 import { useParams } from 'react-router-dom';
@@ -8,7 +8,6 @@ import { ImGithub } from 'react-icons/im';
 import { GiCube } from 'react-icons/gi';
 import { BsCurrencyBitcoin } from 'react-icons/bs';
 import { TbWorld } from 'react-icons/tb';
-import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import {LineChart} from "../../components";
 
 
@@ -21,11 +20,14 @@ export const CryptoDetails = () => {
   
   //get single coin from api
   const [singleCoin, setSingleCoin] = useState();
+  console.log(singleCoin)
   //get coin history
   const [coinHistory, setCoinHistory] = useState();
   // console.log(coinHistory.history[719])
   //set single coin
   const coin = singleCoin?.coin
+  console.log(coin?.description)
+  
   //set button
   const [button, setButton] = useState(true);
 
@@ -35,6 +37,7 @@ export const CryptoDetails = () => {
   const htmlString = coin?.description?.substring(0, 600);
   //get full coin description
   const fullHtmlString = coin?.description;
+  console.log(fullHtmlString)
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -54,6 +57,7 @@ export const CryptoDetails = () => {
     getCoinData(coinId)
     .then((data) => {
       setSingleCoin(data)
+
     })
   }, [coinId]);
 
@@ -63,14 +67,14 @@ export const CryptoDetails = () => {
     .then((data) => {
       setCoinHistory(data)
     })
-  }, [timePeriod])
+  }, [coinId, timePeriod])
 
   
 
 return (
     <div className="cryptoDetail__container">
       <div className="cryptoDetail__header">
-        <img className="cryptoDetail__logo" src={coin?.iconUrl} />
+        <img className="cryptoDetail__logo" src={coin?.iconUrl} alt='coin-icon'/>
         <div className="cryptoDetail__content">
           <span className="cryptoDetail__name">{coin?.name}</span>
           <span className="cryptoDetail__symbol">{coin?.symbol}</span>
