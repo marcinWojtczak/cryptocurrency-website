@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import "./App.css";
-import { Navbar, News, Homepage, Cryptocurrency, CryptoDetails, Exchanges } from "./components"
+import { Navbar, News, Homepage, Cryptocurrency, CryptoDetails, Exchanges, Footer } from "./components"
 import { Routes, Route } from "react-router-dom";
 import { getCoinsData, cryptoNewsData } from "../src/api";
 
@@ -27,6 +27,7 @@ const App = () => {
   
 
   return (
+    <>
     <div className="app gradient--bg">
       <Navbar />
       <Routes>
@@ -37,6 +38,8 @@ const App = () => {
         <Route exact path="/coin/:coinId" element={<CryptoDetails />}></Route>        
       </Routes>
     </div>
+    <Footer />
+    </>
   )
 } 
 

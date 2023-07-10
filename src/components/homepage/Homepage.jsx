@@ -1,6 +1,6 @@
 import React from "react";
 import "./homepage.css";
-import { Cryptocurrency, News, Footer } from "../../components";
+import { Cryptocurrency, News } from "../../components";
 import { Link } from "react-router-dom";
 import millify from "millify";
 
@@ -51,11 +51,6 @@ const Homepage = ( {data, news} ) => {
         </div>
         <News news={news} simplified={true}/>
       </section>
-
-      <section className="footer">
-        <Footer />
-      </section>
-
     </div>
   )
 }

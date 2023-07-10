@@ -5,14 +5,16 @@ import moment from 'moment'
 const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News'
 
 const News = ( { news, simplified }) => {
+  console.log(news)
+
   const data = news?.value;
   const count = simplified ? 6: 15
 
   return (
     <div className="news__container">
       {data?.slice(0, count).map((news, index) => (
-        <div className="news__card" key={index}>
-          <a href={news.url} className="news__link" target="blank">
+        <a href={news.url} className="news__link" target="blank">
+          <div className="news__card" key={index}>
             <div className="news__card--title">
               <img className="news__img" src={news?.image?.thumbnail?.contentUrl} alt="news"></img>
               <h3 className="news__text gradient--text">{news.name}</h3>
@@ -32,8 +34,8 @@ const News = ( { news, simplified }) => {
                 </div>
               <p className="provider__time">{moment(news.datePublished).startOf('hour').fromNow()}</p> 
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
       ))}
     </div>
     

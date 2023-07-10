@@ -20,13 +20,13 @@ export const CryptoDetails = () => {
   
   //get single coin from api
   const [singleCoin, setSingleCoin] = useState();
-  console.log(singleCoin)
+  
   //get coin history
   const [coinHistory, setCoinHistory] = useState();
   // console.log(coinHistory.history[719])
   //set single coin
   const coin = singleCoin?.coin
-  console.log(coin?.description)
+  console.log(coin)
   
   //set button
   const [button, setButton] = useState(true);
@@ -37,7 +37,6 @@ export const CryptoDetails = () => {
   const htmlString = coin?.description?.substring(0, 600);
   //get full coin description
   const fullHtmlString = coin?.description;
-  console.log(fullHtmlString)
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 

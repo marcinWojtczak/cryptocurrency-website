@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 //get coins info
 export async function getCoinsData() {
 	try {
@@ -61,7 +59,7 @@ export async function getExchangeData() {
 		const response = await axios.get('https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges', {
 			headers: {
 				'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
-  			'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+  		  'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
 			}
 		});
 		
@@ -84,8 +82,8 @@ export async function cryptoNewsData(newsCategory)  {
 			'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
 			},
 		});
-
-		return response.data.data
+		
+		return response.data
 	} catch(error) {
 		console.log(error)
 	}

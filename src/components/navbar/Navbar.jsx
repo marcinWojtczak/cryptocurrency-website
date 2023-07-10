@@ -34,8 +34,8 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return(
-    <div className="navbar ">
-      <Link to="/">
+    <div className="navbar">
+      <Link to="/" className="navbar__link">
         <div className="navbar__logo">
           <img src={ logo } className="navbar__img" alt="logo-img" />
           <span className="navbar__text">Crypto market</span>
